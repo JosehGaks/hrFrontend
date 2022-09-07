@@ -1,0 +1,54 @@
+<div class="main-container">
+        <div class="alert alert-app-level alert-warning" role="alert">
+            <div class="alert-items">
+                <div class="alert-item static">
+                    <div class="alert-icon-wrapper">
+                        <clr-icon class="alert-icon" shape="exclamation-triangle"></clr-icon>
+                    </div>
+                    <div class="alert-text">
+                        Alert Type: Warning
+                    </div>
+                    <div class="alert-actions">
+                        <button class="btn alert-action">Action</button>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="close" aria-label="Close">
+                <clr-icon aria-hidden="true" shape="close"></clr-icon>
+            </button>
+        </div>
+    <header class="header header-6">
+        <div class="branding">
+            <a href="..." class="nav-link">
+                <clr-icon shape="vm-bug"></clr-icon>
+                <span class="title">Project Clarity</span>
+            </a>
+        </div>
+        <div class="header-actions">
+            <clr-dropdown>
+                <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
+                    john.doe@vmware.com
+                    <clr-icon shape="caret down"></clr-icon>
+                </button>
+                <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                    <a href="..." clrDropdownItem>Preferences</a>
+                    <a href="..." clrDropdownItem>Log out</a>
+                </clr-dropdown-menu>
+            </clr-dropdown>
+        </div>
+    </header>
+    <div class="content-container">
+        <clr-vertical-nav  [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
+            <a clrVerticalNavLink routerLinkActive="active" class="nav-link" routerLink="/dashboard" aria-current="page"><clr-icon clrVerticalNavIcon shape="dashboard"></clr-icon>Dashboard</a>
+                          <a clrVerticalNavLink routerLinkActive="active" routerLink="/employees" class="nav-link"><clr-icon clrVerticalNavIcon shape="users"></clr-icon>Employees</a>
+                          <a clrVerticalNavLink routerLinkActive="active" class="nav-link"><clr-icon clrVerticalNavIcon shape="building"></clr-icon>Departments</a>
+                          <a clrVerticalNavLink routerLinkActive="active" class="nav-link"><clr-icon clrVerticalNavIcon shape="star"></clr-icon>Benefits</a>
+            <div class="nav-divider"></div>
+            <a clrVerticalNavLink routerLink="./credit" routerLinkActive="active">Credit</a>
+        </clr-vertical-nav>
+        <div class="content-area">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
