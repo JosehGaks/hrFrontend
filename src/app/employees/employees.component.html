@@ -1,14 +1,26 @@
+
+<button type="button" class="btn btn-icon btn-primary" aria-label="settings">
+    Add New
+</button>
 <clr-datagrid>
-    <clr-dg-column>Employee ID</clr-dg-column>
+    <clr-dg-column>Avatar</clr-dg-column>
     <clr-dg-column>First Name</clr-dg-column>
     <clr-dg-column>Last Name</clr-dg-column>
-    <clr-dg-column>Department</clr-dg-column>
+    <clr-dg-column>Email</clr-dg-column>
+    <clr-dg-column>Action</clr-dg-column>
 
     <clr-dg-row *ngFor="let employee of employees">
-        <clr-dg-cell>{{employee.id}}</clr-dg-cell>
-        <clr-dg-cell>{{employee.firstname}}</clr-dg-cell>
-        <clr-dg-cell>{{employee.lastname| date}}</clr-dg-cell>
-        <clr-dg-cell>{{employee.department}}</clr-dg-cell>
+        <clr-dg-cell><img src="https://ui-avatars.com/api/?name={{employee.firstName}}" alt="" srcset=""></clr-dg-cell>
+        <clr-dg-cell>{{employee.firstName}}</clr-dg-cell>
+        <clr-dg-cell>{{employee.lastName}}</clr-dg-cell>
+        <clr-dg-cell>{{employee.email}}</clr-dg-cell>
+        <clr-dg-cell>
+            <button type="button" class="btn btn-icon" aria-label="home"><clr-icon shape="pencil"></clr-icon></button>
+            <button type="button" class="btn btn-icon btn-danger" aria-label="danger" (click)="deleteEmployee(employee._links.employee.href)">
+                <clr-icon shape="trash" class="is-solid"></clr-icon>
+            </button>
+        </clr-dg-cell>
+        
     </clr-dg-row>
 
     <clr-dg-footer>
@@ -18,10 +30,20 @@
             of {{pagination.totalItems}} users
         </clr-dg-pagination>
     </clr-dg-footer>
-    <clr-dg-detail *clrIfDetail="let detail">
-        <clr-dg-detail-header>{{detail.name}}</clr-dg-detail-header>
-        <clr-dg-detail-body>
-            
-        </clr-dg-detail-body>
-    </clr-dg-detail>
+
 </clr-datagrid>
+
+
+<clr-modal [clrModalOpen]="delete" [clrModalClosable]="false">
+    <h3 class="modal-title">Delete employee!</h3>
+    <div class="modal-body">
+    <p>Are you sure you want to Delete this employee?</p>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-outline"
+    (click)="agree = false">Cancel</button>
+    <button type="button" class="btn btn-danger"
+    (click)="agree = true">Yes, continue</button>
+    </div>
+</clr-modal>
+
