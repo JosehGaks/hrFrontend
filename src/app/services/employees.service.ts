@@ -9,6 +9,6 @@ import { DataService } from './data.service';
 export class EmployeesService extends DataService{
 
   constructor(http:HttpClient) {
-    super(environment.API,http)
+    super(environment.API+'/employees',http)
    }
 }
