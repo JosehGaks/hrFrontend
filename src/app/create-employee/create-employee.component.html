@@ -1,0 +1,49 @@
+<div class="container">
+    <h3>Create new user</h3>
+    
+    <form clrForm *ngIf="employeeForm" [formGroup]="employeeForm" (ngSubmit)="createEmployee()">
+      <clr-input-container>
+        <label>username</label>
+        <input clrInput formControlName="username" />
+        <clr-control-error>Username is required
+        </clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>firstName</label>
+        <input clrInput formControlName="firstName"/>
+        <clr-control-error>First name is required
+        </clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>lastName</label>
+        <input clrInput formControlName="lastName"/>
+        <clr-control-error>Last Name is required
+        </clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>email</label>
+        <input clrInput formControlName="email"/>
+        <clr-control-error>Email Name is required
+        </clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>phoneNumber</label>
+        <input clrInput formControlName="phoneNumber"/>
+        <clr-control-error>Phone number Name is required
+        </clr-control-error>
+      </clr-input-container>
+      <clr-select-container>
+        <label>Role</label>
+        <select clrSelect formControlName="role">
+          <option value="ADMIN">Admin</option>
+          <option value="USER">User</option>
+        </select>
+        <clr-control-error>Role is required
+        </clr-control-error>
+      </clr-select-container>
+      <button class="btn btn-primary" type="submit">Create</button>
+      <button class="btn btn-warning" (click)="formClose.emit()" type="button">Cancel</button>
+    </form>
+    
+    </div>
+    
