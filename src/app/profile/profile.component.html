@@ -1,0 +1,83 @@
+<div class="main-container">
+    <div class="content-container">
+        <nav class="sidenav">
+            <section class="sidenav-content">
+                <a (click)="infoPage = true" class="nav-link" [class.active] ="infoPage" >
+                    Personal Information
+                </a>
+                <a (click)="infoPage =false" class="nav-link" [class.active] ="!infoPage" >
+                    Password
+                </a>
+            </section>
+        </nav>
+        <div class="content-area">
+
+                <div class="clr-row">
+                    <div class="clr-col-lg-6 clr-col-12">
+                        <form clrForm *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="save()">
+                            <div class="card">
+                                <h3 class="card-header">Basic Information</h3>
+
+                                <div class="card-block">
+
+
+                                    <div class="card-media-block">
+                                        <img [src]= "avatarUrl" class="card-media-image" />
+                                        <div class="card-media-description">
+                                            <input class="card-media card-media-title pd-2" formControlName="firstName"/>
+                                            <input class="card-media card-media-text" formControlName="lastName"/>
+                                        </div>
+                                    </div>
+                                    <div class="card-text">
+                                    
+                                        <clr-input-container>
+                                            <label><clr-icon shape="envelope"></clr-icon>
+                                            </label>
+                                            <input clrInput formControlName="email"/>
+                                            <clr-control-error>Email Name is required
+                                            </clr-control-error>
+                                          </clr-input-container>
+                                          <clr-input-container>
+                                            <label><clr-icon shape="phone-handset"></clr-icon></label>
+                                            <input clrInput formControlName="phoneNumber"/>
+                                            <clr-control-error>Phone number Name is required
+                                            </clr-control-error>
+                                          </clr-input-container>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-primary" type="submit">Save</button>
+                                </div>
+                            </div>
+                                    
+                        </form>
+                       
+                    </div>
+                </div>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
