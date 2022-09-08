@@ -1,0 +1,8 @@
+.justify-end{
+    float: right;
+    text-align: center;
+    justify-content: center;
+    font-size: large;
+    font-weight: bold;
+    padding: 4px;
+}
