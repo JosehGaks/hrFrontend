@@ -17,7 +17,7 @@ export class DataService {
 
   getAll(){
     return this.http.get(this.url).pipe(
-      map((res:any) => res),
+      map((res:any) => res._embedded),
       catchError(this.handleError)
     )
   }
@@ -55,6 +55,13 @@ export class DataService {
     console.log(id)
     return this.http.delete(this.url+'/'+id).pipe(
         map(res => res),
+      catchError(this.handleError)
+    )
+  }
+
+  deleteByUrl(url:string){
+    return this.http.delete(url).pipe(
+      map(res => res),
       catchError(this.handleError)
     )
   }
