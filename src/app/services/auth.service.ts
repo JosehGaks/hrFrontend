@@ -15,13 +15,13 @@ export class AuthService {
   constructor(private router:Router,private http:HttpClient) { }
 
 
-  login(credentials: any):Observable<any>{
+  login(credentials: Credential):Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
         })
       };
-    return this.http.post(environment.API + 'login',JSON.stringify(credentials),httpOptions).pipe(
+    return this.http.post(environment.URL + 'login',JSON.stringify(credentials),httpOptions).pipe(
       map((response:any) => {
         if(response && response.token){
           localStorage.setItem('token', response.token);
