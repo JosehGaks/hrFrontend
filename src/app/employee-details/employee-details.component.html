@@ -1,0 +1,57 @@
+<div class="modal">
+    <div class="modal-dialog" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" type="button">
+                    <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                </button>
+                <h3 class="modal-title">I have a nice title</h3>
+            </div>
+            <form clrForm *ngIf="employeeForm" [formGroup]="employeeForm" (ngSubmit)="save()">
+            <div class="modal-body">
+                    <clr-input-container>
+                        <label>first name
+                        </label>
+                        <input clrInput formControlName="firstName"/>
+                        <clr-control-error>First Name is required
+                        </clr-control-error>
+                      </clr-input-container>
+                      <clr-input-container>
+                        <label>last name
+                        </label>
+                        <input clrInput formControlName="lastName"/>
+                        <clr-control-error>Last Name is required </clr-control-error>
+                      </clr-input-container>
+                    <clr-input-container>
+                        <label><clr-icon shape="envelope"></clr-icon>
+                        </label>
+                        <input clrInput formControlName="email"/>
+                        <clr-control-error>Email Name is required
+                        </clr-control-error>
+                      </clr-input-container>
+                      <clr-input-container>
+                        <label><clr-icon shape="phone-handset"></clr-icon></label>
+                        <input clrInput formControlName="phoneNumber"/>
+                        <clr-control-error>Phone number Name is required
+                        </clr-control-error>
+                      </clr-input-container>
+                      <clr-select-container>
+                        <label>Role</label>
+                        <select clrSelect formControlName="role">
+                          <option value="ADMIN">Admin</option>
+                          <option value="EMPLOYEE">Employee</option>
+                        </select>
+                        <clr-control-error>Role is required
+                        </clr-control-error>
+                      </clr-select-container>
+              
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn" (click)="formClose.emit()">Cancel</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop" aria-hidden="true"></div>
